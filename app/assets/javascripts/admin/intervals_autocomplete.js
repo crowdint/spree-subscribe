@@ -68,10 +68,10 @@ $(document).ready(function() {
 
   var subscribable = $("#product_subscribable").is(":checked");
   if (!subscribable) {
-    $("#subscriptions_container").addClass("hidden")
+    $("#subscriptions_container").hide();
   }
 
   $("#product_subscribable").click(function(){
-    $("#subscriptions_container").toggleClass("hidden");
+    $("#subscriptions_container").toggle();
   });
 })
