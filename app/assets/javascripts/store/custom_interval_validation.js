@@ -14,8 +14,8 @@ subscribeApp.CustomInterval = (function(){
   };
 
   CustomInterval.prototype.updateValues = function(min, val) {
-    this.intervalTimes.attr('min', min)
-                      .val(val);
+    this.intervalTimes.attr({ min: min, value: val });
+    this.intervalTimes.val(val);
   };
 
   CustomInterval.prototype.getValues = function(selected) {

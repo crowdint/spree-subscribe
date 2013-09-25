@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   var isValid = function(field){
-    return (field.val() > 0);
+    return parseInt(field.val()) >= parseInt(field.attr('min'));
   }
 
   $('.subscription-form').dialog({
