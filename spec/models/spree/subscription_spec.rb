@@ -101,7 +101,6 @@ describe Spree::Subscription do
 
     it "should have a valid order with a shipping method" do
       @sub.reorder
-      @sub.add_subscribed_line_item
       @sub.select_shipping.should be_true
 
       order = @sub.reorders.first
@@ -137,20 +136,20 @@ describe Spree::Subscription do
     end
 
     it "should have a completed order" do
-      #TODO fb, should return the state to complete, before conekta supports recurrent payments
       @sub.reorder.should be_true
 
       order = @sub.reorders.first
-      order.state.should eq("payment")
-      #order.completed?.should be
+      order.state.should eq("complete")
+      order.completed?.should be
     end
 
     it "should send a reorder email reminder" do
       Spree::Order.any_instance.should_receive(:deliver_reorder_confirmation_email)
       @sub.reorder
+      @sub.reorder_reminder
 
       order = @sub.reorders.first
-      order.state.should eq("payment")
+      order.state.should eq("complete")
     end
   end
 
