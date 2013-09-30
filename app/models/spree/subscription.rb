@@ -40,7 +40,6 @@ class Spree::Subscription < ActiveRecord::Base
     user && user.email || line_item.order.email
   end
   # DD: TODO pull out into a ReorderBuilding someday
-  # TODO fb, revert the changes after conekta support recurrent payment
   def reorder
     raise false unless self.state == 'active'
 
@@ -48,7 +47,8 @@ class Spree::Subscription < ActiveRecord::Base
     self.new_order.next && #-> delivery
     select_shipping &&
     add_payment &&
-    reorder_reminder &&
+    confirm_reorder &&
+    complete_reorder &&
     calculate_reorder_date!
   end
 
@@ -108,7 +108,8 @@ class Spree::Subscription < ActiveRecord::Base
     self.new_order.next && self.new_order.save # -> complete
   end
 
-  #TODO fb, remove this when conekta support recurrent payments
+  #Send an email when recurring payment is not supported
+  #by the payment method
   def reorder_reminder
     self.new_order.deliver_reorder_confirmation_email
   end
