@@ -9,6 +9,6 @@ Spree::LineItem.class_eval do
   end
 
   def subscribed_name
-    variant.subscribed_name(self.subscription.id)
+    subscription && subscription.time_title_translated
   end
 end
