@@ -27,8 +27,10 @@ Spree::Product.class_eval do
     interval && interval.subscribed_price || price
   end
 
+  #TODO(fb), check if this method is necessary
   def subscribed_name(id)
-    spree_subscription_interval_products.find(id).name
+    subscription_interval = get_subscription_interval(id)
+    subscription_interval && subscription_interval.name
   end
 
 end
