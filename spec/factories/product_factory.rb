@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  # DD: 'simple_product' comes from Spree core
-  factory :subscribable_product, :parent => :simple_product do
+  # DD: 'product' comes from Spree core, simple_product no longer exists
+  factory :subscribable_product, :parent => :product do
     subscribable true
   end
 end
