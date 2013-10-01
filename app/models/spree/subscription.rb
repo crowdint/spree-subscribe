@@ -20,6 +20,7 @@ class Spree::Subscription < ActiveRecord::Base
   has_many :reorders, :class_name => "Spree::Order"
 
   scope :active, where(:state => 'active')
+  scope :reorder_before, ->(date){ active.where('reorder_on <= ?', date ) }
 
   state_machine :state, :initial => 'cart' do
     event :suspend do
