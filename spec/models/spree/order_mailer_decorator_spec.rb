@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Spree::OrderMailer do
   describe '#reorder_email' do
-    let(:order) { create :order }
+    let(:order) { create :order_with_line_items }
     let(:subject) { Spree::OrderMailer }
     let(:email_subject) { "Spree Demo Site reminder subscription payment" }
     let(:email_body) do

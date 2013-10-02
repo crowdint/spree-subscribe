@@ -56,5 +56,6 @@ en:
   subscriptions_config_label: Subscriptions
   order_mailer:
     reorder_email:
+      body: Your subscription will expire soon. Please go to the site %{site_link} and complete your payment.
+      header: 'List of items in your subscription:'
       subject: reminder subscription payment
-      body: Your subscription will expire soon.<br/>Please go to the site %{site_link} and complete your payment.

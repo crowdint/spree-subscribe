@@ -56,5 +56,6 @@ es:
   subscriptions_config_label: Subscripciones
   order_mailer:
     reorder_email:
+      header: 'Número de artículos en su subscripción:'
+      body: 'Su subscripción está a punto de expirar. Por favor ingrese al sitio %{site_link} para realizar su pago.'
       subject: recordatorio de pago de subscripción
-      body: Su subscripción esta apunto de expirar.<br/>Por favor ingrese al sitio %{site_link} para realizar su pago.

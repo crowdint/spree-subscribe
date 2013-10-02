@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style type='text/css'>
+    table{
+      width: 300px;
+      border-collapse: collapse;
+    }
+    th, td{
+      border: none;
+    }
+    th{
+      background-color: #000;
+      color: #fff;
+    }
+    tr:nth-of-type(even){
+      background-color: #F3F3F3;
+    }
+    tr:nth-of-type(odd){
+      background-color: #ddd;
+    }
+    td:nth-child(n+2){
+      text-align: right;
+    }
+ </style>
+</head>
+<body>
+  <section>
+    <article>
+     <p>
+      <%= t('order_mailer.reorder_email.body', site_link: url) %>
+     </p>
+     <p>
+     <header><h3><%= t('order_mailer.reorder_email.header') %>></h3></header>
+     <table>
+       <thead>
+         <tr>
+           <th><%= t('subscribe.product') %></th>
+           <th><%= t('subscribe.price') %></th>
+         </tr>
+       </thead>
+       <tbody>
+         <%- myorder.line_items.each do |li| %>
+           <tr>
+             <td><%= li.product.name %> </td>
+             <td><%= money(li.product.price) %> </td>
+           </tr>
+         <% end %>
+       </tbody>
+     </table>
+     </p>
+   </section>
+ </body>
+</html>
