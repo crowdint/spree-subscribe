@@ -1,6 +1,5 @@
 <!-- insert_before '.add-to-cart' -->
-  <%- #DD: when supporting multiple variants at a time: variant_id = @product.has_variants? ? @product.variants.first.id : @product.master.id %>
-  <%- unless @product.option_types.find_by_name('Membresia') %>
+  <div class='subscription_options'>
     <div>
       <%= hidden_field_tag 'product_id', @product.id %>
       <%= radio_button_tag 'subscriptions[active]', 0, true %><%= t('one_time_purchase', scope: 'subscribe') %>
@@ -17,11 +16,11 @@
       <input type='number' id='subscription_interval_times' min='15' value='15' class='interval' >
       <%= select_tag 'subscription_interval[time_unit]', options_for_select(Spree::SubscriptionInterval.translated_interval) %><br />
     </div>
-  <% end %>
 
-  <script>
-    $(document).ready(function(){
-      intervalValidation = new subscribeApp.CustomInterval();
-      intervalValidation.setup();
-    });
-  </script>
+    <script>
+      $(document).ready(function(){
+        intervalValidation = new subscribeApp.CustomInterval();
+        intervalValidation.setup();
+      });
+    </script>
+  </div>
