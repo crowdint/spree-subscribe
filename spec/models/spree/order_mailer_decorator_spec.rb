@@ -6,8 +6,8 @@ describe Spree::OrderMailer do
     let(:subject) { Spree::OrderMailer }
     let(:email_subject) { "Spree Demo Site reminder subscription payment" }
     let(:email_body) do
-      I18n.t('order_mailer.reorder_email.body',
-             site_link: 'http://localhost:3000/cart')
+      I18n.t('order_mailer.reorder_email.body_html',
+             site_link: '<a href="http://localhost:3000/cart">here</a>')
     end
 
     it 'should send a reorder email' do
