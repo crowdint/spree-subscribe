@@ -1,7 +1,7 @@
 Spree::OrderMailer.class_eval do
 
   def reorder_email order
-    puts 'Sending reminder subscription'
+    puts "Sending reminder subscription to: #{order.email}"
     subject = "#{Spree::Config[:site_name]} #{t('order_mailer.reorder_email.subject')}"
     body =  render 'spree/order_mailer/reorder_email', locals: { myorder: order, url: cart_url }
     mail(to:            order.email,
