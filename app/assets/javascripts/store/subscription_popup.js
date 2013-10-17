@@ -1,7 +1,10 @@
 $(document).ready(function() {
 
   var isValid = function(field){
-    return parseInt(field.val()) >= parseInt(field.attr('min'));
+    var value = parseInt(field.val());
+    var min = parseInt(field.attr('min'));
+    var max = parseInt(field.attr('max'));
+    return (value >= min && value <= max);
   }
 
   $('.subscription-form').dialog({
