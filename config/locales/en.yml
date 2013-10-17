@@ -48,6 +48,9 @@ en:
     subscribed_price: Subscription Price
     subscription_purchase: 'Delivery Every:'
     subscription_reoder_every: 'Subscription: Reorder every %{interval}'
+    subscription_state:
+      cancelled: Cancelled
+      active: Active
     suspend_subscription: Suspend
     total: Order Total
     user: User

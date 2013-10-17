@@ -48,6 +48,9 @@ es:
     subscribed_price: Precio de la subscripción
     subscription_purchase: 'Entregar cada:'
     subscription_reorder_every: 'Subscripción: Reordenar cada %{interval}'
+    subscription_state:
+      cancelled: Cancelada
+      active: Activa
     suspend_subscription: Suspender
     total: Total de la Orden
     user: Usuario
